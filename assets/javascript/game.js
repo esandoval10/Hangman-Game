@@ -41,8 +41,6 @@ var game = {
 
         //---Initial Values Reset---//
 
-            var myButton = document.getElementById('button');  
-            myButton.style.display = 'none';
 
             this.rightGuess = 0;
             this.guessLeft = 10;
