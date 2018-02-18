@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hangman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+</head>
+<body>
+    <h1>The Juke</h1>
+    
+    <container class ="mainContent pulse">
+        <section class="displayPanel">
+            <img class="backgroundImage" src="assets/images/back.png">
+
+            <div class="screen" id="mediaTarget">
+                <img class="displayMedia" id="imgHold" src="assets/images/glitchScreen.gif">
+            </div> 
+
+        </section>
+        <section class = "gamePanel">
+            <h3>Press any key to get started!</h3>
+            <h3>Wins</h3>
+            <div id = "score">
+                0
+            </div>
+            <h3>Current Word</h3>
+            <div id = "currentWord">
+            
+            </div>
+            <h3>Number of Guesses Remaining</h3>
+            <div id = "guessCounter">
+                10
+            </div>
+            <h3>Letters Already Guessed</h3>
+            <div id="charGuess">
+                
+            </div>
+        </section>
+    </container>
+
+
+    <script src="assets/javascript/game.js"></script>
+</body>
+</html>
