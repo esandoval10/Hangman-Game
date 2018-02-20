@@ -41,8 +41,6 @@ var game = {
 
         //---Initial Values Reset---//
 
-            var myButton = document.getElementById('button');  
-            myButton.style.display = 'none';
 
             this.rightGuess = 0;
             this.guessLeft = 10;
@@ -58,7 +56,15 @@ var game = {
                 'v', 'w', 'x',
                 'y', 'z', ' '];
 
-            game.underlines();
+
+            if (this.wordsList.length > 0){
+                game.underlines();
+            }
+            else {
+                document.getElementById('magic').innerHTML = "<h1>Congratulations Your Jukebox Skills are out of this World!</h1><div></div><p>Refresh the page to reset the Game!</p>";
+            }
+
+            
         
          
             document.getElementById('guessCounter').innerHTML = this.guessLeft;
@@ -92,7 +98,6 @@ var game = {
                 'v', 'w', 'x',
                 'y', 'z', ' '];
 
-            game.underlines();
         
             test = false;
             game.startGame();
@@ -103,9 +108,20 @@ var game = {
         keyRemove: function(userIn){ 
             for (var i = 0; i < this.alphabet.length; i++) {
                 if (userIn === this.alphabet[i] && test === true) { 
-                    var splicedChar = this.alphabet.splice(i, 1);
-                    game.check(userIn);
-                    game.winConditions();
+                var splicedChar = this.alphabet.splice(i, 1);
+                game.check(userIn);
+                game.winConditions();
+                }
+            }
+        },
+
+    //---Word Remover---//
+
+        correctRemover: function(){
+            for (var i = 0; i < this.wordsList.length; i++) {
+                if (this.randomWord === this.wordsList[i]) { 
+                    var splicedWord = this.wordsList.splice(i, 1);
+                    var splicedMedia = this.mediaArr.splice(i, 1);
                 }
             }
         },
@@ -160,11 +176,12 @@ var game = {
                 this.countWins++;
                 document.getElementById('score').innerHTML = this.countWins;
                 game.mediaMatcher();
+                game.correctRemover();
                 game.reset();
             }
             else if (this.guessLeft === 0) {
-              
                 this.countLoss++;
+                
                 alert('You need to upgrade your jukebox skills!');
                 game.reset();
             }

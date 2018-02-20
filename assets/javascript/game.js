@@ -90,7 +90,6 @@ var game = {
                 'v', 'w', 'x',
                 'y', 'z', ' '];
 
-            game.underlines();
         
             test = false;
             game.startGame();
